@@ -1,0 +1,141 @@
+html, body {
+    height: 100%;
+}
+body {
+    background-color: white;
+    background: -webkit-radial-gradient(white, lightgray);
+    background: -moz-radial-gradient(white, lightgray);
+    background: radial-gradient(white, lightgray);
+    background-size: 100% 100%;
+
+    padding: 0;
+    margin: 0;
+
+    cursor: default;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    font-family: Arial;
+    font-size: 16px;
+    color: white;
+
+    text-align: center;
+}
+.main {
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 500px;
+
+    color: black;
+}
+h1 {
+    padding: 20px 10px 10px 10px;
+    margin: -20px;
+    margin-bottom: 20px;
+
+    background: black;
+
+    font-family: 'ufontscomepisodei';
+    font-size: 24px;
+
+    color: white;
+}
+p.error {
+    margin: 1em 0;
+    padding: 5px;
+    background-color: #931919;
+}
+form {
+    padding: 0;
+    margin: 0;
+}
+input[type=text] {
+    box-sizing: border-box;
+    width: 100%;
+
+    border: 0;
+    outline: 0;
+    background: white;
+    margin: 5px 0;
+    padding: 8px 12px;
+    border-radius: 2px;
+
+    font-family: Arial;
+    font-size: 16px;
+    color: #222222;
+}
+input[type=text].error {
+    background-color: #FFD1D1;
+    color: #6B0000;
+}
+
+button {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    background: rgb(50,50,50);
+    margin: 5px 0;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 2px;
+
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+    overflow: hidden;
+}
+button:active {
+    background: red;
+}
+button[disabled] {
+    background: #222222;
+    color: #888888;
+    cursor: default;
+}
+button + button {
+    margin-top: 5px;
+}
+
+.canvas {
+    width: 100%;
+    padding-bottom: 100%;
+    position: relative;
+}
+.canvas canvas {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: white;
+}
+
+#scene-code input[id=code-input] {
+    text-transform: uppercase;
+}
+::-webkit-input-placeholder { text-transform: none; }
+::-moz-placeholder { text-transform: none; }
+:-ms-input-placeholder { text-transform: none; }
+input:-moz-placeholder { text-transform: none; }
+
+.scene-guess input[name=guess] {
+    text-transform: lowercase;
+}
+
+.hidden {
+    display: none !important;
+}
