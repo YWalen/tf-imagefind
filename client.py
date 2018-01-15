@@ -1,9 +1,13 @@
 from PIL import Image
 import numpy as np
 import tensorflow as tf
-import os, os.path
-import test
+import os.path
+import objectdetection
 import piexif
+
+curPath = os.getcwd()
+
+print(curPath)
 
 def load_image_into_numpy_array(image):
     (im_width, im_height) = image.size
@@ -19,7 +23,7 @@ def tag_image(image,tag):
     image_to_tag.save(image, exif=exif_bytes)
 
 IMAGES = []
-path = "C:/Users/YannickJW/PycharmProjects/keras/models-master/research/object_detection/temp_images/"
+path = curPath + "/temp_images/"
 valid_images = (".jpg",".jpeg")
 for f in os.listdir(path):
     ext = os.path.splitext(f)[1]
@@ -38,7 +42,7 @@ results = []
 
 file = open("temp.txt","w")
 
-detection_graph = test.detection_graph
+detection_graph = objectdetection.detection_graph
 
 with detection_graph.as_default():
     with tf.Session(graph=detection_graph) as sess:
@@ -70,7 +74,7 @@ with detection_graph.as_default():
             objects = classes[scores > 0.5]
             tag = ""
             for obj in objects:
-                detected = " " + str((test.category_index[obj]['name']))
+                detected = " " + str((objectdetection.category_index[obj]['name']))
                 results.append(detected)
                 tag += detected
             results.append("|")

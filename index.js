@@ -42,7 +42,6 @@ function runPython(socket) {
     console.log("running python...");
     PythonShell.run('client.py', function (err) {
         console.log('finished');
-        running = false;
         showResults(socket);
     });
 
