@@ -48,13 +48,13 @@ function runPython(socket) {
 }
 
 function showResults(socket) {
-    var tempfile = __dirname+"/temp.txt";
+    var tempfile = __dirname+"/results.txt";
     var dir = __dirname+"/"+socket.id+"/";
-    var file = __dirname+"/"+socket.id+"/temp.txt";
+    var file = __dirname+"/"+socket.id+"/results.txt";
     var root = "/" + socket.id + "/";
 
     moveFile(tempfile, dir);
-    getFile(root+"temp.txt");
+    getFile(root+"results.txt");
     moveFiles(__dirname+"/temp_images/",dir, root);
 
     fs.readFile(file, 'utf8', function (err,data) {

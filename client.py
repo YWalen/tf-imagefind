@@ -7,7 +7,6 @@ import piexif
 
 curPath = os.getcwd()
 
-print(curPath)
 
 def load_image_into_numpy_array(image):
     (im_width, im_height) = image.size
@@ -40,7 +39,7 @@ IMAGE_SIZE = (12, 8)
 
 results = []
 
-file = open("temp.txt","w")
+file = open("results.txt","w")
 
 detection_graph = objectdetection.detection_graph
 
