@@ -5,6 +5,7 @@ import os.path
 import objectdetection
 import piexif
 
+req_score = 0.5
 curPath = os.getcwd()
 
 
@@ -70,7 +71,7 @@ with detection_graph.as_default():
                 feed_dict={image_tensor: image_np_expanded})
             # Visualization of the results of a detection.
             results.append("|")
-            objects = classes[scores > 0.5]
+            objects = classes[scores > req_score]
             tag = ""
             for obj in objects:
                 detected = " " + str((objectdetection.category_index[obj]['name']))

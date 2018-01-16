@@ -78,9 +78,11 @@ function search() {
     var found = [];
     var images = [];
     for (i=0; i<queries.length;i++) {
-        var split = dictionary[queries[i]].split("|");
-        for (j=0;j<split.length;j++) {
-            found.push(split[j]);
+        if (dictionary[queries[i]]) {
+            var split = dictionary[queries[i]].split("|");
+            for (j = 0; j < split.length; j++) {
+                found.push(split[j]);
+            }
         }
     }
     for (i=0; i<found.length;i++) {
@@ -96,6 +98,9 @@ function search() {
         }
     }
     document.getElementById("results").innerHTML = query + ": " + images;
+    if (images[0] == undefined) {
+        document.getElementById("results").innerHTML = "Object not detected!";
+    }
     for (i = 0; i < images.length; i++) {
         showImage(images[i]);
     }
