@@ -74,8 +74,28 @@ function uploadFile() {
 function search() {
     deleteChildren(document.getElementById('images'));
     var query = document.getElementById("search").value;
-    document.getElementById("results").innerHTML = query + ": " + dictionary[query];
-    var images = dictionary[query].split("|");
+    var queries = query.split(" ");
+    var found = [];
+    var images = [];
+    for (i=0; i<queries.length;i++) {
+        var split = dictionary[queries[i]].split("|");
+        for (j=0;j<split.length;j++) {
+            found.push(split[j]);
+        }
+    }
+    for (i=0; i<found.length;i++) {
+        var x = 0;
+        for (j=0; j<found.length;j++)        {
+            if (found[i] == found[j]){
+                x = x + 1;
+                if (x == queries.length && images.includes(found[i]) == false) {
+                    images.push(found[i]);
+                }
+            }
+
+        }
+    }
+    document.getElementById("results").innerHTML = query + ": " + images;
     for (i = 0; i < images.length; i++) {
         showImage(images[i]);
     }
